@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Bai+Jamjuree:ital,wght@0,400;0,600;1,400;1,600&family=Barlow+Condensed:ital,wght@0,400;0,700;1,400;1,700&family=Barlow+Semi+Condensed:ital,wght@0,500;0,600;1,500;1,600&family=Barlow:ital,wght@0,400;0,600;1,400;1,600&family=Big+Shoulders+Display:wght@600;700&family=Commissioner:wght@400;500;700;800&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Karla:ital,wght@0,400;0,700;1,400;1,700&family=Kumbh+Sans:wght@400;700&family=Lexend+Deca:wght@300;400&family=Libre+Franklin:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&family=Manrope:wght@600;800&family=Montserrat:ital,wght@0,700;1,700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Outfit:wght@300;400;600&family=Overpass:ital,wght@0,300;0,600;1,300;1,600&family=Poppins:ital,wght@0,200;0,400;0,600;0,700;1,200;1,400;1,600;1,700&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,700&family=Spartan:wght@400;500;700&family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
+}
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+/* remove animation for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================================================== */
+/*                                     VVV                                    */
+/* ========================================================================== */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+
+  background-image: linear-gradient(to bottom, #a968ea, #6a63e7);
+}
+
+.container {
+  width: 90%;
+  max-width: 1280px;
+  border-radius: 20px;
+  background: #fbfbfb;
+  margin: 50px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* ========================================================================== */
+/*                                     IMG                                    */
+/* ========================================================================== */
+.img {
+  position: relative;
+  width: 50%;
+  min-height: 600px;
+  display: block;
+  background: red;
+  align-self: flex-end;
+  background-image: url(./images/bg-pattern-desktop.svg),
+    url(./images/illustration-woman-online-desktop.svg);
+  background-repeat: no-repeat;
+  //   background-size: cover, contain;
+  background-position: right 8rem bottom -15rem, right 8rem bottom 2rem;
+
+  // .img-mobile
+  .img-mobile {
+    display: none;
+  }
+
+  .img-box {
+    position: absolute;
+    bottom: 20%;
+    // transform: translateY(50%);
+    left: -6rem;
+  }
+}
+
+/* ========================================================================== */
+/*                                    .TEXT                                   */
+/* ========================================================================== */
+.text {
+  width: 50%;
+  padding: 4rem 7rem 6rem 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  //   h2
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+// .question-block
+.question {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.question-block {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.249);
+  padding: 1rem 0;
+
+  /* ---------------------------------- active --------------------------------- */
+
+  &.active > .ans {
+    max-height: 500px;
+  }
+  &.active > .title > h3 {
+    color: black;
+    font-weight: 700;
+  }
+
+  &.active > .title > img {
+    transform: rotate(180deg);
+  }
+  /* ----------------------------------- vv ----------------------------------- */
+  //   2.title
+  .title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+
+    &:hover > h3 {
+      font-weight: 700;
+      color: #f59374;
+    }
+
+    h3 {
+      font-weight: 400;
+    }
+
+    img {
+      transition: all 0.5s ease;
+      width: 25px;
+      height: 15px;
+    }
+  }
+
+  //   2.ans
+  .ans {
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 1.5s ease;
+  }
+}
