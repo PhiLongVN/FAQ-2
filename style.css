@@ -76,8 +76,8 @@ body {
 }
 
 .container {
-  width: 90%;
-  max-width: 1280px;
+  width: 85%;
+  max-width: 1180px;
   border-radius: 20px;
   background: #fbfbfb;
   margin: 50px auto;
@@ -87,10 +87,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 2rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 5rem;
 }
 
 /* ========================================================================== */
@@ -98,15 +98,15 @@ body {
 /* ========================================================================== */
 .img {
   position: relative;
-  width: 50%;
+  min-width: 400px;
   min-height: 600px;
   display: block;
-  background: red;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   background-image: url(./images/bg-pattern-desktop.svg), url(./images/illustration-woman-online-desktop.svg);
   background-repeat: no-repeat;
-  background-position: right 8rem bottom -15rem, right 8rem bottom 2rem;
+  background-size: 180%, 120%;
+  background-position: right 0rem bottom -1rem, right 0rem bottom 8rem;
 }
 
 .img .img-mobile {
@@ -115,8 +115,8 @@ body {
 
 .img .img-box {
   position: absolute;
-  bottom: 20%;
-  left: -6rem;
+  bottom: 28%;
+  left: -6.5rem;
 }
 
 /* ========================================================================== */
@@ -124,7 +124,7 @@ body {
 /* ========================================================================== */
 .text {
   width: 50%;
-  padding: 4rem 7rem 6rem 0;
+  padding: 4rem 3rem 6rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -171,6 +171,8 @@ body {
 
 .question-block.active > .ans {
   max-height: 500px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .question-block.active > .title > h3 {
@@ -216,8 +218,75 @@ body {
 
 .question-block .ans {
   max-height: 0px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   overflow: hidden;
-  -webkit-transition: all 1.5s ease;
-  transition: all 1.5s ease;
+  -webkit-transition: -webkit-clip-path 0.5s ease;
+  transition: -webkit-clip-path 0.5s ease;
+  transition: clip-path 0.5s ease;
+  transition: clip-path 0.5s ease, -webkit-clip-path 0.5s ease;
+  padding-top: 0.5rem;
+}
+
+@media screen and (max-width: 1069.98px) {
+  .img {
+    min-width: 350px;
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 90%;
+    max-width: 600px;
+    gap: 0rem;
+    margin-top: 220px;
+  }
+  /* ---------------------------------- .img ---------------------------------- */
+  .img {
+    width: 100%;
+    min-width: unset;
+    min-height: 200px;
+    background-image: url(./images/bg-pattern-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: 65%;
+    background-position: top center;
+  }
+  .img .img-box {
+    display: none;
+  }
+  .img .img-mobile {
+    display: block;
+    width: 65%;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -60%);
+            transform: translate(-50%, -60%);
+  }
+  /* ---------------------------------- .text --------------------------------- */
+  .text {
+    width: 100%;
+    padding: 2rem;
+    padding-top: 0rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media screen and (max-width: 424.98px) {
+  .img {
+    min-height: 120px;
+  }
+  .question-block .title h3 {
+    font-size: 0.9rem;
+  }
+  .question-block .ans {
+    font-size: 0.9rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
